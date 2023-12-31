@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "django-boilerplate"
+version = "0.1.0"
+description = "a sample project (experiment) on using typing and linters in django project"
+authors = ["Vladimir Gorbachuk <vladimirgorbachuk@gmail.com>"]
+license = "GPL-3.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^5.0"
+gunicorn = "^21.2.0"
+psycopg2-binary = "^2.9.9"
+
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.8.0"
+flake8 = "^6.1.0"
+django-stubs = "^4.2.7"
+
+[tool.django-stubs]
+django_settings_module = "sample.settings"
+strict_settings = false
+
+[tool.poetry.group.local-dev-additional.dependencies]
+pre-commit = "^3.6.0"
+
+[tool.mypy]
+python_version = "3.11"
+plugins = ["mypy_django_plugin.main"]
+files = ["."]
+exclude = ["^.venv/"]
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
